@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# add this to work directly on alsa card (not with pipewire)
 DEFCARD="-c 1"
 
 case $1 in
