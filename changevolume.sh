@@ -1,17 +1,18 @@
 #!/bin/bash
 
 PERCENTAGE=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
+STEP=5
 
 case $1 in
 	high)
 		# Set the volume on (if it was muted)
 		pactl set-sink-mute @DEFAULT_SINK@ 0
-	    [ $PERCENTAGE -lt 100 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%
+		[ $PERCENTAGE -gt $(expr 100 + 1 - $STEP) ] && pactl set-sink-volume @DEFAULT_SINK@ 100% || pactl set-sink-volume @DEFAULT_SINK@ +$STEP%
 		;;
 	low)
 		# Set the volume on (if it was muted)
 		pactl set-sink-mute @DEFAULT_SINK@ 0
-	    pactl set-sink-volume @DEFAULT_SINK@ -5%
+	    pactl set-sink-volume @DEFAULT_SINK@ -$STEP%
 		;;
 	muted)
 		pactl set-sink-mute @DEFAULT_SINK@ toggle
