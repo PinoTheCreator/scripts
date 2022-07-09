@@ -1,10 +1,9 @@
 #!/bin/bash
 
 waybar &
-wbg ~/Pictures/spiritedtrain.jpg &
-wlsunset -L 41.50 -l 12.30 &
+wbg ~/Pictures/gruvbox_spiritedaway.jpg &
+wlsunset -S 08:00 -s 20:00 -d 1800 &
 dunst &
+noisetorch -i &
 
-pipewire &
-pipewire-pulse &
-pipewire-media-session &
+gentoo-pipewire-launcher &

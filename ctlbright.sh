@@ -16,4 +16,4 @@ doas brillo -q $MODE 5
 
 PERCENTAGE=$(brillo)
 
-dunstify -a "multimedial" -r "10000" -h int:value:$PERCENTAGE -i "dialog-information" "Brightness: $PERCENTAGE%"
+dunstify -a "multimedial" -r "10000" -h int:value:$PERCENTAGE "Brightness: $PERCENTAGE%"

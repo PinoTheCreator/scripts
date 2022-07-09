@@ -20,6 +20,8 @@ choice=$(echo "$(printf '%s\n' "${options[@]}")" | bemenu -p 'Edit config file: 
 case $choice in
 	.bashrc)
 		choice="$HOME/$choice" ;;
+  dunst)
+    choice="$HOME/.config/dunst/dunstrc";;
 	dwl)
 		choice="$HOME/.config/$choice/config.def.h";;
 	foot)
